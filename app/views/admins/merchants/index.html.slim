@@ -1,0 +1,24 @@
+h3.h3.mb-5 Merchants
+
+table.table.table-primary
+  thead
+    tr
+      th Name
+      th Description
+      th Email
+      th Total transaction sum
+      th Transaction count
+      th Status
+      th colspan='2'
+        = 'Actions'
+  tbody
+    - @merchants.each do |merchant|
+      tr
+        td = merchant&.merchant_account.name.to_s
+        td = merchant&.merchant_account&.description.to_s
+        td = merchant.email
+        td = merchant&.merchant_account&.total_transaction_sum&.to_f
+        td = merchant&.merchant_account&.transactions&.count.to_i
+        td = merchant&.merchant_account&.status&.capitalize || 'Inactive'
+        td = link_to 'Edit', edit_admins_merchant_path(merchant), class: 'btn btn-primary'
+        td = link_to 'Destroy', admins_merchant_path(merchant.id), class: 'btn btn-danger', data: { 'turbo-method' => :delete, turbo_confirm: 'Are you sure?' }

@@ -51,6 +51,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rspec', require: false
 gem 'sidekiq-cron'
 gem 'slim'
+gem 'rails-controller-testing'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

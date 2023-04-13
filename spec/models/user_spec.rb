@@ -15,7 +15,6 @@ RSpec.describe User, type: :model do
   include_examples 'shared_email_verification'
   it { is_expected.to validate_presence_of(:type) }
   it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_presence_of(:password) }
   it { is_expected.to validate_inclusion_of(:type).in_array(described_class::AVAILABLE_TYPES) }
   it { is_expected.not_to allow_value(nil).for(:type) }
   it { is_expected.not_to allow_value('SomeOtherValue').for(:type) }

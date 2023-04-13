@@ -9,6 +9,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :type, :email, :password, presence: true
+  validates :type, :email, presence: true
   validates :email, format: { with: /\A\S+@.+\.\S+\z/ }
 end

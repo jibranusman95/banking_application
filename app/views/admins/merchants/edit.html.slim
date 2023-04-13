@@ -1,0 +1,24 @@
+= form_for @merchant, url: admins_merchant_path(@merchant) do |f|
+  .form-group
+    = f.label :email
+    = f.text_field :email, disabled: true, class: 'form-control'
+
+  = f.fields_for :merchant_account do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+
+    .form-group
+      = f.label :status
+      = f.select(:status, options_for_select(MerchantAccount.statuses.keys.map{|k| [k.capitalize, k] }, @merchant&.merchant_account.status), {}, { class: 'form-control' })
+
+    .form-group
+      = f.label :total_transaction_sum
+      = f.number_field :total_transaction_sum, disabled: true, class: 'form-control'
+
+  = f.submit 'Submit', class: 'btn btn-primary mt-3'
+  = link_to 'Back', admins_merchants_path, class: 'btn btn-primary mt-3 ms-3'
