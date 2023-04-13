@@ -34,7 +34,7 @@ RSpec.describe Api::V1::TransactionsController, type: :controller do
 
     before do
       request.headers.merge!('Authorization' => token)
-      post :create, params: { transaction: { customer_email: customer.email, customer_phone: '123456', amount: 20 } } 
+      post :create, params: { transaction: { customer_email: customer.email, customer_phone: '123456', amount: 20 } }
       post :refund, params: request_params
     end
 
