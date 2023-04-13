@@ -1,0 +1,10 @@
+table.table.table-primary
+  thead
+    tr
+      - transactions.table_headings.each do |heading_name|
+        th = heading_name
+  tbody
+    - transactions.table_attributes.each do |row_attributes|
+      tr
+        - transactions.table_headings.each do |heading_name|
+          td = row_attributes[heading_name]

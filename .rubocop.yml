@@ -7,6 +7,10 @@ Lint/MissingSuper:
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/controllers/shared/*'
+
 AllCops:
   Exclude:
     - 'db/**/*'

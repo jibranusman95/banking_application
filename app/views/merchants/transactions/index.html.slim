@@ -1,0 +1,4 @@
+h3.h3.mb-5 Your Transactions
+h4.h4.mb-5 Total transaction sum: #{current_user.merchant_account&.total_transaction_sum}
+
+= render partial: 'shared/transactions', locals: { transactions: @transactions }
