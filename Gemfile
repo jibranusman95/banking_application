@@ -47,11 +47,11 @@ gem 'bootsnap', require: false
 gem 'byebug'
 gem 'devise'
 gem 'jwt'
+gem 'rails-controller-testing'
 gem 'rubocop', require: false
 gem 'rubocop-rspec', require: false
 gem 'sidekiq-cron'
 gem 'slim'
-gem 'rails-controller-testing'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
