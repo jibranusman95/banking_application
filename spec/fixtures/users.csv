@@ -1,0 +1,4 @@
+user_type,email,password,merchant_name,merchant_description,merchant_status
+admin,admin@banking.com,password,
+merchant,merchant@banking.com,password,shop1,,active
+admin,admin1@banking.com,password
