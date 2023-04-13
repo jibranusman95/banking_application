@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require './spec/models/shared/type_validation'
+require './spec/models/shared/transaction_validation'
 
 RSpec.describe AuthorizeTransaction, type: :model do
   let(:customer) { FactoryBot.create(:customer, email: 'customer@banking.com') }
@@ -21,6 +22,21 @@ RSpec.describe AuthorizeTransaction, type: :model do
     it 'is invalid because authorize transaction has no parent' do
       expect(described_class.create(**valid_attrs, parent_id: authorize_transaction.id)).to be_invalid
     end
+  end
+
+  context 'with merchant verification' do
+    let(:invalid_merchant) { FactoryBot.create(:merchant, email: 'invalid@banking.com') }
+    let(:transaction_valid_attrs) { valid_attrs }
+    let(:transaction_invalid_attrs) do
+      valid_attrs.except(:merchant_account_id).merge!(merchant_account_id: invalid_merchant.merchant_account.id)
+    end
+    let(:transaction_type) { :authorize_transaction }
+
+    before do
+      invalid_merchant.merchant_account.update!(status: :inactive)
+    end
+
+    include_examples 'merchant_verification'
   end
 
   context 'when parent is not passed' do

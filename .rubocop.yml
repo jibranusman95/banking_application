@@ -11,6 +11,10 @@ RSpec/LetSetup:
   Exclude:
     - 'spec/controllers/shared/*'
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/features/*'
+
 AllCops:
   Exclude:
     - 'db/**/*'
