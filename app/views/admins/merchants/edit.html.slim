@@ -4,6 +4,8 @@
     = f.text_field :email, disabled: true, class: 'form-control'
 
   = f.fields_for :merchant_account do |f|
+    = f.hidden_field :id
+
     .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control'

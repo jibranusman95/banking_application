@@ -34,7 +34,7 @@ module Admins
     private
 
     def merchant_params
-      params.require(:merchant).permit(merchant_account_attributes: %i[name description status])
+      params.require(:merchant).permit(merchant_account_attributes: %i[id name description status])
     end
 
     def set_merchant
